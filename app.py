@@ -699,7 +699,9 @@ with tab_editar:
             opciones
         )
 
-        indice_df = opciones.index(seleccion)
+        indice_df = opciones.index(
+            seleccion
+        )
 
         numero_fila = indice_df + 2
 
@@ -707,9 +709,18 @@ with tab_editar:
 
         st.divider()
 
+        # ====================================================
+        # FORMULARIO EDITAR
+        # MISMO ORDEN QUE NUEVA CUADRILLA
+        # ====================================================
+
         with st.form("form_editar_cuadrilla"):
 
-            col1, col2, col3 = st.columns(3)
+            # =================================================
+            # FILA 1
+            # =================================================
+
+            col1, col2, col3, col4, col5 = st.columns(5)
 
             with col1:
 
@@ -720,12 +731,16 @@ with tab_editar:
                     )
                 )
 
+            with col2:
+
                 placa_e = st.text_input(
                     "PLACA DE VEHICULO",
                     value=str(
                         registro["PLACA DE VEHICULO"]
                     )
                 )
+
+            with col3:
 
                 tipo_vehiculo_e = st.text_input(
                     "TIPO DE VEHICULO",
@@ -734,57 +749,7 @@ with tab_editar:
                     )
                 )
 
-                tecnico_calificado_e = st.text_input(
-                    "NOMBRES Y APELLIDOS DE TECNICO CALIFICADO",
-                    value=str(
-                        registro[
-                            "NOMBRES Y APELLIDOS DE TECNICO CALIFICADO"
-                        ]
-                    )
-                )
-
-                tecnico_apoyo_e = st.text_input(
-                    "NOMBRES Y APELLIDOS TECNICO DE APOYO",
-                    value=str(
-                        registro[
-                            "NOMBRES Y APELLIDOS TECNICO DE APOYO"
-                        ]
-                    )
-                )
-
-                celular_empresa_tecnico_e = st.text_input(
-                    "NUMERO CELULAR TECNICO CALIFICADO DE LA EMPRESA",
-                    value=str(
-                        registro[
-                            "NUMERO CELULAR TECNICO CALIFICADO DE LA EMPRESA"
-                        ]
-                    )
-                )
-
-                celular_personal_tecnico_e = st.text_input(
-                    "NUMERO CELULAR PERSONAL DEL TECNICO CALIFICADO",
-                    value=str(
-                        registro[
-                            "NUMERO CELULAR PERSONAL DEL TECNICO CALIFICADO"
-                        ]
-                    )
-                )
-
-            with col2:
-
-                fecha_inicio_e = st.text_input(
-                    "FECHA INICIO",
-                    value=str(
-                        registro["FECHA INICIO"]
-                    )
-                )
-
-                fecha_fin_e = st.text_input(
-                    "FECHA FIN",
-                    value=str(
-                        registro["FECHA FIN"]
-                    )
-                )
+            with col4:
 
                 licencia_e = st.text_input(
                     "CATEGORIA DE LICENCIA DE CONDUCIR DEL CONDUCTOR",
@@ -795,19 +760,58 @@ with tab_editar:
                     )
                 )
 
-                unidad_negocio_e = st.text_input(
-                    "UNIDAD DE NEGOCIO",
+            with col5:
+
+                tecnico_calificado_e = st.text_input(
+                    "NOMBRES Y APELLIDOS DE TECNICO CALIFICADO",
                     value=str(
-                        registro["UNIDAD DE NEGOCIO"]
+                        registro[
+                            "NOMBRES Y APELLIDOS DE TECNICO CALIFICADO"
+                        ]
                     )
                 )
 
-                servicio_electrico_e = st.text_input(
-                    "SERVICIO ELECTRICO",
+
+            # =================================================
+            # FILA 2
+            # =================================================
+
+            col1, col2, col3, col4, col5 = st.columns(5)
+
+            with col1:
+
+                tecnico_apoyo_e = st.text_input(
+                    "NOMBRES Y APELLIDOS TECNICO DE APOYO",
                     value=str(
-                        registro["SERVICIO ELECTRICO"]
+                        registro[
+                            "NOMBRES Y APELLIDOS TECNICO DE APOYO"
+                        ]
                     )
                 )
+
+            with col2:
+
+                celular_empresa_tecnico_e = st.text_input(
+                    "NUMERO CELULAR TECNICO CALIFICADO DE LA EMPRESA",
+                    value=str(
+                        registro[
+                            "NUMERO CELULAR TECNICO CALIFICADO DE LA EMPRESA"
+                        ]
+                    )
+                )
+
+            with col3:
+
+                celular_personal_tecnico_e = st.text_input(
+                    "NUMERO CELULAR PERSONAL DEL TECNICO CALIFICADO",
+                    value=str(
+                        registro[
+                            "NUMERO CELULAR PERSONAL DEL TECNICO CALIFICADO"
+                        ]
+                    )
+                )
+
+            with col4:
 
                 contrato_e = st.text_input(
                     "CONTRATO",
@@ -816,10 +820,37 @@ with tab_editar:
                     )
                 )
 
+            with col5:
+
                 item_e = st.text_input(
                     "ITEM",
                     value=str(
                         registro["ITEM"]
+                    )
+                )
+
+
+            # =================================================
+            # FILA 3
+            # =================================================
+
+            col1, col2, col3, col4, col5 = st.columns(5)
+
+            with col1:
+
+                unidad_negocio_e = st.text_input(
+                    "UNIDAD DE NEGOCIO",
+                    value=str(
+                        registro["UNIDAD DE NEGOCIO"]
+                    )
+                )
+
+            with col2:
+
+                servicio_electrico_e = st.text_input(
+                    "SERVICIO ELECTRICO",
+                    value=str(
+                        registro["SERVICIO ELECTRICO"]
                     )
                 )
 
@@ -834,6 +865,8 @@ with tab_editar:
                     )
                 )
 
+            with col4:
+
                 celular_empresa_supervisor_e = st.text_input(
                     "NUMERO CELULAR EMPRESA DEL SUPERVISOR",
                     value=str(
@@ -842,6 +875,8 @@ with tab_editar:
                         ]
                     )
                 )
+
+            with col5:
 
                 celular_personal_supervisor_e = st.text_input(
                     "NUMERO CELULAR PERSONAL DEL SUPERVISOR",
@@ -852,12 +887,41 @@ with tab_editar:
                     )
                 )
 
+
+            # =================================================
+            # FILA 4
+            # =================================================
+
+            col1, col2, col3, col4, col5 = st.columns(5)
+
+            with col1:
+
                 coordinador_e = st.text_input(
                     "COORDINADOR GENERAL",
                     value=str(
                         registro["COORDINADOR GENERAL"]
                     )
                 )
+
+            with col2:
+
+                fecha_inicio_e = st.text_input(
+                    "FECHA INICIO",
+                    value=str(
+                        registro["FECHA INICIO"]
+                    )
+                )
+
+            with col3:
+
+                fecha_fin_e = st.text_input(
+                    "FECHA FIN",
+                    value=str(
+                        registro["FECHA FIN"]
+                    )
+                )
+
+            with col4:
 
                 observacion_e = st.text_area(
                     "OBSERVACION",
@@ -866,10 +930,24 @@ with tab_editar:
                     )
                 )
 
+            with col5:
+
+                st.empty()
+
+
+            # =================================================
+            # BOTÓN
+            # =================================================
+
             guardar_edicion = st.form_submit_button(
                 "💾 GUARDAR MODIFICACIÓN",
                 use_container_width=True
             )
+
+
+        # ====================================================
+        # GUARDAR CAMBIOS
+        # ====================================================
 
         if guardar_edicion:
 
@@ -969,8 +1047,6 @@ with tab_editar:
                     )
 
                     st.exception(e)
-
-
 # ============================================================
 # TAB ELIMINAR
 # ============================================================
