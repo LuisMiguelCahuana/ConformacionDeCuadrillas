@@ -385,7 +385,6 @@ tab_nuevo, tab_editar, tab_eliminar = st.tabs([
     "🗑️ ELIMINAR CUADRILLA"
 ])
 
-
 # ============================================================
 # TAB NUEVO
 # ============================================================
@@ -398,7 +397,11 @@ with tab_nuevo:
 
     with st.form("form_nueva_cuadrilla"):
 
-        col1, col2, col3 = st.columns(3)
+        # ====================================================
+        # FILA 1
+        # ====================================================
+
+        col1, col2, col3, col4, col5 = st.columns(5)
 
         with col1:
 
@@ -406,28 +409,116 @@ with tab_nuevo:
                 "CENTRO DE COSTOS"
             )
 
+        with col2:
+
             placa = st.text_input(
                 "PLACA DE VEHICULO"
             )
+
+        with col3:
 
             tipo_vehiculo = st.text_input(
                 "TIPO DE VEHICULO"
             )
 
+        with col4:
+
+            licencia = st.text_input(
+                "CATEGORIA DE LICENCIA DE CONDUCIR DEL CONDUCTOR"
+            )
+
+        with col5:
+
             tecnico_calificado = st.text_input(
                 "NOMBRES Y APELLIDOS DE TECNICO CALIFICADO"
             )
+
+
+        # ====================================================
+        # FILA 2
+        # ====================================================
+
+        col1, col2, col3, col4, col5 = st.columns(5)
+
+        with col1:
 
             tecnico_apoyo = st.text_input(
                 "NOMBRES Y APELLIDOS TECNICO DE APOYO"
             )
 
+        with col2:
+
             celular_empresa_tecnico = st.text_input(
                 "NUMERO CELULAR TECNICO CALIFICADO DE LA EMPRESA"
             )
 
+        with col3:
+
             celular_personal_tecnico = st.text_input(
                 "NUMERO CELULAR PERSONAL DEL TECNICO CALIFICADO"
+            )
+
+        with col4:
+
+            contrato = st.text_input(
+                "CONTRATO"
+            )
+
+        with col5:
+
+            item = st.text_input(
+                "ITEM",
+                value=item_seleccionado.replace("ITEM_", "")
+            )
+
+
+        # ====================================================
+        # FILA 3
+        # ====================================================
+
+        col1, col2, col3, col4, col5 = st.columns(5)
+
+        with col1:
+
+            unidad_negocio = st.text_input(
+                "UNIDAD DE NEGOCIO"
+            )
+
+        with col2:
+
+            servicio_electrico = st.text_input(
+                "SERVICIO ELECTRICO"
+            )
+
+        with col3:
+
+            supervisor = st.text_input(
+                "SUPERVISOR DE LA CUADRILLA"
+            )
+
+        with col4:
+
+            celular_empresa_supervisor = st.text_input(
+                "NUMERO CELULAR EMPRESA DEL SUPERVISOR"
+            )
+
+        with col5:
+
+            celular_personal_supervisor = st.text_input(
+                "NUMERO CELULAR PERSONAL DEL SUPERVISOR"
+            )
+
+
+        # ====================================================
+        # FILA 4
+        # ====================================================
+
+        col1, col2, col3, col4, col5 = st.columns(5)
+
+        with col1:
+
+            coordinador = st.text_input(
+                "COORDINADOR GENERAL"
             )
 
         with col2:
@@ -437,58 +528,39 @@ with tab_nuevo:
                 value=None
             )
 
+        with col3:
+
             fecha_fin = st.date_input(
                 "FECHA FIN",
                 value=None
             )
 
-            licencia = st.text_input(
-                "CATEGORIA DE LICENCIA DE CONDUCIR DEL CONDUCTOR"
-            )
-
-            unidad_negocio = st.text_input(
-                "UNIDAD DE NEGOCIO"
-            )
-
-            servicio_electrico = st.text_input(
-                "SERVICIO ELECTRICO"
-            )
-
-            contrato = st.text_input(
-                "CONTRATO"
-            )
-
-            item = st.text_input(
-                "ITEM",
-                value=item_seleccionado.replace("ITEM_", "")
-            )
-
-        with col3:
-
-            supervisor = st.text_input(
-                "SUPERVISOR DE LA CUADRILLA"
-            )
-
-            celular_empresa_supervisor = st.text_input(
-                "NUMERO CELULAR EMPRESA DEL SUPERVISOR"
-            )
-
-            celular_personal_supervisor = st.text_input(
-                "NUMERO CELULAR PERSONAL DEL SUPERVISOR"
-            )
-
-            coordinador = st.text_input(
-                "COORDINADOR GENERAL"
-            )
+        with col4:
 
             observacion = st.text_area(
                 "OBSERVACION"
             )
 
+        with col5:
+
+            # Se deja vacío para conservar
+            # exactamente la distribución solicitada.
+            st.empty()
+
+
+        # ====================================================
+        # BOTÓN
+        # ====================================================
+
         guardar_nuevo = st.form_submit_button(
             "💾 GUARDAR CUADRILLA",
             use_container_width=True
         )
+
+
+    # ========================================================
+    # GUARDAR
+    # ========================================================
 
     if guardar_nuevo:
 
@@ -587,8 +659,6 @@ with tab_nuevo:
                 )
 
                 st.exception(e)
-
-
 # ============================================================
 # TAB EDITAR
 # ============================================================
