@@ -77,7 +77,7 @@ def conectar_google():
 
     client = gspread.authorize(creds)
 
-    spreadsheet_id = st.secrets["SPREADSHEET_ID"]
+    spreadsheet_id = st.secrets["1IVNFi2DIUIRNW7jPMZ5zHA6anUtHkGeCJzN2UmooZTQ"]
 
     spreadsheet = client.open_by_key(spreadsheet_id)
 
